@@ -1,3 +1,5 @@
+import torch, random
+import data_generator as dg
 data = [
     ["Magnus Carlsen",2853],
     ["Alireza Firouzja",2786],
@@ -198,8 +200,18 @@ data = [
     ["Tigran Gharamian",2601],
     ["Denis Kadric",2601],
     ["Dmitry Kokarev",2601],
-    ["Miguel Cordoba",2600]
+    ["Miguel Cordoba",2600],
+    ["Donat Dubiel", 2853*2],
+    ["Vladimir Putin", 10]
 ]
+
+new_playersx2 = 16000
+
+for i in range(0,new_playersx2):
+    arr_china = [dg.chinese_names(), random.randint(900, 2500)]
+    arr_west = [dg.western_names(), random.randint(400, 2000)]
+    data.append(arr_china)
+    data.append(arr_west)
 
 
 
@@ -222,5 +234,6 @@ for item in data:
                 tok_arr.append(i/100)
     item[0] = tok_arr
     item[1] = item[1]/10000
+
 
 #print (data)
